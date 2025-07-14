@@ -1,8 +1,8 @@
-const express = require('express');
-const serverless = require('serverless-http');
-const { storage } = require('../../server/storage');
-const { monitoringService } = require('../../server/services/monitoring');
-const { notificationService } = require('../../server/services/notifications');
+import express from 'express';
+import serverless from 'serverless-http';
+import { storage } from '../../server/storage.js';
+import { monitoringService } from '../../server/services/monitoring.js';
+import { notificationService } from '../../server/services/notifications.js';
 
 const app = express();
 
@@ -146,4 +146,4 @@ app.post("/api/notifications/test/email", async (req, res) => {
 });
 
 // Export handler for Netlify Functions
-module.exports.handler = serverless(app);
+export const handler = serverless(app);
